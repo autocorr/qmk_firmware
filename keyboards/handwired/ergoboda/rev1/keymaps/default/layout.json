@@ -1,0 +1,328 @@
+[
+  {
+    "name": "Ergoboda-F Schematic v1.0",
+    "notes": "# Ergoboda Layout\n## Layers\n- \"Layout\" toggles the alphas between QWERTY and the RSTHD layout (light gray, upper left).\n- \"Nav\" is pressed with the palm and activates the Navigation layer (blue, upper right). Macros for `:w` and `:q` are included. The Undo-Paste commands are aliases for common shortcuts, although Cut is a macro for `^Ins Del`.\n- \"Num\" is pressed with the palm and activates the Numpad/F-key layer (green, lower right). Toggling is used on the number pad layer for extended input and holding is used for the function keys.\n- \"Sym\" toggles the Symbol layer (red, middle right). Symbols are organized mainly for Python/LaTeX programming and prose writing.\n\n## General\n- Combos are used for common control sequences: move forward/backward one word, Tab, Esc, and delete one word backwards. These are only effectively usable on the QWERTY layer although they exist on the RHSTD layer.\n- Most mods and layering keys are one-shots except the less frequently used modifiers. These are put on the less frequently used bottom row. Hyper+HJKL is mapped for moving workspaces and is the most frequently used.\n- WWW Back is mainly used for casual one-handed browsing with the mouse on the left hand. VIM shortcuts are used with the Firefox extension Vimium otherwise.",
+    "switchMount": "cherry"
+  },
+  [
+    {
+      "y": 0.25,
+      "x": 3.5,
+      "t": "#6b6b6b\n\n#1200ff\n#008c04\n\n\n#000000\n#b00000",
+      "fa": [
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "Y\n\nIns\nF3\n\n\nE\n[",
+    {
+      "x": 7.5
+    },
+    ",\n\nEnd\n8\n\n\nI\n!"
+  ],
+  [
+    {
+      "y": -0.87,
+      "x": 2.5
+    },
+    "C\n\nSleep\nF2\n\n\nW\n*",
+    {
+      "x": 1.25
+    },
+    "F\n\nSysRq\nF4\n\n\nR\n]",
+    "K\n\nNKRO\nF5\n\n\nT\n%",
+    {
+      "x": 3
+    },
+    "Z\n\n\n(\n\n\nY\n|",
+    "L\n\nHome\n7\n\n\nU\n?",
+    {
+      "x": 1.25
+    },
+    "U\n\nTab\n9\n\n\nO\n#"
+  ],
+  [
+    {
+      "y": -0.7499999999999999,
+      "x": 0.25
+    },
+    "\n\nReset\nF11\n\n\nTab",
+    {
+      "t": "#6b6b6b\n\n#1200ff\n#008c04\n#545454\n\n#000000\n#b00000"
+    },
+    "J\n\nPlay\nF1\n\n\nQ\n`",
+    {
+      "x": 12
+    },
+    "Q\n\nEsc\n,\n\n\nP\n^",
+    {
+      "t": "#000000\n\n#b00000",
+      "a": 6,
+      "fa": [
+        2
+      ]
+    },
+    "WWW Back"
+  ],
+  [
+    {
+      "y": -0.3799999999999999,
+      "x": 3.5,
+      "c": "#bababa",
+      "t": "#6b6b6b\n\n#1200ff\n#008c04\n#545454\n\n#000000\n#b00000",
+      "a": 0,
+      "fa": [
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "T\n\nCopy\n-\n^<i class='kb kb-Arrows-Left'></i>\nTab\nD\n(",
+    {
+      "x": 7.5,
+      "t": "#545454\n\n#1200ff\n#008c04\n\n#545454\n#000000\n#b00000",
+      "fa": [
+        0,
+        0,
+        2,
+        2
+      ]
+    },
+    "A\n\n<i class='kb kb-Arrows-Up'></i>\n5\nEsc\n^<i class='kb kb-Arrows-Right'></i>\nK\n\""
+  ],
+  [
+    {
+      "y": -0.8700000000000001,
+      "x": 2.5,
+      "t": "#6b6b6b\n\n#1200ff\n#008c04\n\n#545454\n#000000\n#b00000",
+      "fa": [
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "S\n\nCut\ne\n\n^<i class='kb kb-Arrows-Left'></i>\nS\n=",
+    {
+      "x": 1.25,
+      "t": "#545454\n\n#1200ff\n#008c04\n#545454\n#545454\n#000000\n#b00000",
+      "n": true
+    },
+    "H\n\nPaste\n+\nTab\n^<i class='kb kb-Unicode-BackSpace-DeleteLeft-Big'></i>\nF\n)",
+    {
+      "c": "#cccccc",
+      "t": "#6b6b6b\n\n#1200ff\n#008c04\n\n\n#000000\n#b00000",
+      "a": 4
+    },
+    "P\n\nMute\n*\n\n\nG\n_",
+    {
+      "x": 3
+    },
+    "W\n\n<i class='kb kb-Arrows-Left'></i>\nTab\n\n\nH\n\\",
+    {
+      "c": "#bababa",
+      "t": "#545454\n\n#1200ff\n#008c04\n#545454\n#545454\n#000000\n#b00000\n\n\n\n#545454",
+      "a": 0,
+      "fa": [
+        0,
+        0,
+        2,
+        2
+      ],
+      "n": true
+    },
+    "N\n\n<i class='kb kb-Arrows-Down'></i>\n4\n^<i class='kb kb-Unicode-BackSpace-DeleteLeft-Big'></i>\nEsc\nJ\n'",
+    {
+      "x": 1.25,
+      "t": "#6b6b6b\n\n#1200ff\n#008c04\n#545454\n#545454\n#000000\n#b00000"
+    },
+    "I\n\n<i class='kb kb-Arrows-Right'></i>\n6\n^<i class='kb kb-Arrows-Right'></i>\n\nL\n-"
+  ],
+  [
+    {
+      "y": -0.75,
+      "x": 0.25,
+      "c": "#cccfa7",
+      "t": "#6b6b6b\n\n#1200ff\n#008c04\n\n\n#000000\n#b00000\n\n\n#000000",
+      "a": 4,
+      "fa": [
+        0,
+        0,
+        2,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    "\n\n\n\n\n\nCtrl\n\n\n\n(OSM)",
+    {
+      "c": "#bababa",
+      "t": "#6b6b6b\n\n#1200ff\n#008c04\n\n\n#000000\n#b00000",
+      "fa": [
+        0,
+        0,
+        1,
+        2
+      ]
+    },
+    "R\n\nUndo\n/\n\n\nA\n/",
+    {
+      "x": 12
+    },
+    "O\n\nDel\n.\n\n\n:\n:",
+    {
+      "c": "#cccfa7",
+      "t": "#6b6b6b\n#000000\n#1200ff\n#008c04\n\n\n#000000\n#b00000\n#000000\n\n#000000",
+      "fa": [
+        0,
+        2,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ]
+    },
+    "\n(OSM)\n\n<i class='kb kb-Unicode-BackSpace-DeleteLeft-Big'></i>\n\n\nCtrl"
+  ],
+  [
+    {
+      "y": -0.3799999999999999,
+      "x": 3.5,
+      "c": "#cccccc",
+      "t": "#6b6b6b\n\n#1200ff\n#008c04\n#9400a1\n\n#000000\n#b00000"
+    },
+    "G\n\nV. Dn\nF8\nHyper\n\nC\n{",
+    {
+      "x": 7.5
+    },
+    ".\n\nPgUp\n2\nHyper\n\n,\n,"
+  ],
+  [
+    {
+      "y": -0.8700000000000001,
+      "x": 2.5
+    },
+    "V\n\nNext\nF7\nAlt\n\nX\n@",
+    {
+      "x": 1.25
+    },
+    "D\n\nV. Up\nF9\n\n\nV\n}",
+    {
+      "t": "#6b6b6b\n\n#1200ff\n#008c04\n\n\n#000000\n#b00000"
+    },
+    "B\n\n\nF10\n\n\nB\n$",
+    {
+      "x": 3
+    },
+    "X\n\n\n)\n\n\nN\n~",
+    {
+      "t": "#6b6b6b\n\n#1200ff\n#008c04\n#9400a1\n\n#000000\n#b00000"
+    },
+    "M\n\nPgDn\n1\n\n\nM\n&",
+    {
+      "x": 1.25
+    },
+    "'\n\n:w\n3\nAlt\n\n.\n."
+  ],
+  [
+    {
+      "y": -0.75,
+      "x": 0.25
+    },
+    "\n\n\nF12\n\n\nCaps",
+    "Ent\n\nPrev\nF6\nMeta\n\nZ\n+",
+    {
+      "x": 12
+    },
+    "?\n\n:q\nEnter\nMeta\n\n/\n;",
+    {
+      "t": "#000000\n\n#b00000\n\n#9400a1",
+      "a": 6
+    },
+    "Layout"
+  ],
+  [
+    {
+      "y": 0.25,
+      "x": 4.75,
+      "c": "#ff7a7a",
+      "t": "#6b6b6b\n\n\n\n#545454",
+      "a": 4,
+      "fa": [
+        0,
+        2,
+        1,
+        2,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        2
+      ]
+    },
+    "\n\n\n\n\n\nSymb\n\n\n\n(OSL)",
+    {
+      "c": "#bababa",
+      "t": "#6b6b6b\n\n\n\n#545454\n\n#000000",
+      "n": true
+    },
+    "E\n\n\n\n\n\nEnter",
+    {
+      "x": 3,
+      "t": "#000000\n\n\n\n#545454",
+      "a": 6,
+      "n": true
+    },
+    "Space",
+    {
+      "c": "#ff7a7a",
+      "t": "#6b6b6b\n\n\n\n#545454",
+      "a": 4
+    },
+    "\n\n\n\n\n\nSymb\n\n\n\n(OSL)"
+  ],
+  [
+    {
+      "y": -0.75,
+      "x": 6.75,
+      "c": "#cccfa7",
+      "t": "#000000"
+    },
+    "\n\n\n\n\n\nShift\n\n\n\n(OSM)",
+    {
+      "x": 1,
+      "c": "#cccccc",
+      "t": "#6b6b6b\n\n\n#008c04\n#545454\n\n#000000"
+    },
+    "\n\n\n0\n\n\n<i class='kb kb-Unicode-BackSpace-DeleteLeft-Big'></i>"
+  ],
+  [
+    {
+      "y": 0.75,
+      "x": 5.25,
+      "c": "#94bee3",
+      "t": "#000000"
+    },
+    "\n\n\n\n\n\nNav\n\n\n\n(TT)",
+    {
+      "x": 4,
+      "c": "#8acf97"
+    },
+    "\n\n\n\n\n\nNum\n\n\n\n(TT)"
+  ]
+]
