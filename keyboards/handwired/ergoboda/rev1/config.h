@@ -35,8 +35,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MATRIX_COLS 6
 
 // Wiring of each half
-#define MATRIX_COL_PINS { B6, B2, E6, D7, C6, D4 }
 #define MATRIX_ROW_PINS { F7, B1, B3, B4 }
+#define MATRIX_COL_PINS { B6, B2, E6, D7, C6, D4 }
+#define MATRIX_ROW_PINS_RIGHT { C6, D7, B4, F7 }
+#define MATRIX_COL_PINS_RIGHT { B2, B3, B6, B1, D4, E6 }
 
 #define DIODE_DIRECTION COL2ROW
 
@@ -53,14 +55,13 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 // Communication options
 #define MASTER_LEFT
 #define USE_I2C
+#define SPLIT_USB_DETECT
+#define SPLIT_USB_TIMEOUT 1000
 
 // Mechanical locking support. Use KC_LCAP, KC_LNUM or KC_LSCR instead in keymap
 #define LOCKING_SUPPORT_ENABLE
 // Locking resynchronize hack
 #define LOCKING_RESYNC_ENABLE
-
-// Enables This makes it easier for fast typists to use dual-function keys
-#define PERMISSIVE_HOLD
 
 // Enable link time optimizations to reduce binary size
 #define LTO_ENABLE

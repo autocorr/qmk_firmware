@@ -22,7 +22,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 //#define MASTER_LEFT
 
 #define COMBO_TERM 25
-#define COMBO_COUNT 5
+#define COMBO_COUNT 7
 
 #define TAPPING_TERM 200
 #define TAPPING_TOGGLE 1

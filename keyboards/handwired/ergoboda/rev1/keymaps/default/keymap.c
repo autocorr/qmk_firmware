@@ -18,6 +18,8 @@ enum combo_events {
   FJ_COMBO,
   JK_COMBO,
   KL_COMBO,
+  MCOMMA_COMBO,
+  COMMADOT_COMBO,
 };
 
 const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
@@ -25,6 +27,8 @@ const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
 const uint16_t PROGMEM fj_combo[] = {KC_F, KC_J, COMBO_END};
 const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM mco_combo[] = {KC_M, KC_COMMA, COMBO_END};
+const uint16_t PROGMEM codo_combo[] = {KC_COMMA, KC_DOT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [SD_COMBO] = COMBO_ACTION(sd_combo),
@@ -32,6 +36,8 @@ combo_t key_combos[COMBO_COUNT] = {
   [FJ_COMBO] = COMBO_ACTION(fj_combo),
   [JK_COMBO] = COMBO(jk_combo, KC_ESC),
   [KL_COMBO] = COMBO_ACTION(kl_combo),
+  [MCOMMA_COMBO] = COMBO(mco_combo, KC_WWW_BACK),
+  [COMMADOT_COMBO] = COMBO(codo_combo, KC_WWW_FORWARD),
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
@@ -62,12 +68,12 @@ void process_combo_event(uint16_t combo_index, bool pressed) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QW] = LAYOUT_eb_4x6(  // QWERTY base layer
-    KC_TAB,         KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           KC_WWW_BACK,
+    OSM(MOD_LGUI),  KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           OSM(MOD_LALT),
     OSM(MOD_LCTL),  KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                           KC_H,           KC_J,           KC_K,           KC_L,           KC_COLN,        OSM(MOD_RCTL),
-    KC_CAPSLOCK,    LGUI_T(KC_Z),   LALT_T(KC_X),   HYPR_T(KC_C),   KC_V,           KC_B,                           KC_N,           KC_M,           HYPR_T(KC_COMMA),LALT_T(KC_DOT),LGUI_T(KC_SLASH),TO(_RS),
+    KC_CAPSLOCK,    KC_Z,           HYPR_T(KC_X),   KC_C,           KC_V,           KC_B,                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       TO(_RS),
                                     TT(_NV),        OSL(_SY),       KC_ENTER,       OSM(MOD_LSFT),                  KC_BSPACE,      KC_SPACE,       OSL(_SY),       TT(_NF)
   ),
-  [_RS] = LAYOUT_eb_4x6(  // RSTHP layout
+  [_RS] = LAYOUT_eb_4x6(  // RSTHD layout
     _______,        KC_J,           KC_C,           KC_Y,           KC_F,           KC_K,                           KC_Z,           KC_L,           KC_COMMA,       KC_U,           KC_Q,           _______,
     _______,        KC_R,           KC_S,           KC_T,           KC_H,           KC_P,                           KC_W,           KC_N,           KC_A,           KC_I,           KC_O,           _______,
     _______,        KC_ENTER,       KC_V,           KC_G,           KC_D,           KC_B,                           KC_X,           KC_M,           KC_DOT,         KC_QUOTE,       KC_QUES,        TO(_QW),
@@ -145,6 +151,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define _RLED F5
 #define _GLED F6
 #define _BLED B5
+
+void keyboard_pre_init_user(void) {
+	setPinOutput(_RLED);
+	setPinOutput(_GLED);
+	setPinOutput(_BLED);
+}
 
 uint32_t layer_state_set_user(uint32_t state) {
   uint8_t layer = biton32(state);
