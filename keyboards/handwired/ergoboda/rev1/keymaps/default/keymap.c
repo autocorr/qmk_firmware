@@ -15,46 +15,49 @@ enum custom_keycodes {
 enum combo_events {
   SD_COMBO,
   DF_COMBO,
-  FJ_COMBO,
   JK_COMBO,
   KL_COMBO,
+  JL_COMBO,
   MCOMMA_COMBO,
-  COMMADOT_COMBO,
+  LADA_COMBO,
+  DARA_COMBO,
 };
 
 const uint16_t PROGMEM sd_combo[] = {KC_S, KC_D, COMBO_END};
 const uint16_t PROGMEM df_combo[] = {KC_D, KC_F, COMBO_END};
-const uint16_t PROGMEM fj_combo[] = {KC_F, KC_J, COMBO_END};
 const uint16_t PROGMEM jk_combo[] = {KC_J, KC_K, COMBO_END};
 const uint16_t PROGMEM kl_combo[] = {KC_K, KC_L, COMBO_END};
+const uint16_t PROGMEM jl_combo[] = {KC_J, KC_L, COMBO_END};
 const uint16_t PROGMEM mco_combo[] = {KC_M, KC_COMMA, COMBO_END};
-const uint16_t PROGMEM codo_combo[] = {KC_COMMA, KC_DOT, COMBO_END};
+const uint16_t PROGMEM lada_combo[] = {KC_LEFT, KC_DOWN, COMBO_END};
+const uint16_t PROGMEM dara_combo[] = {KC_DOWN, KC_RIGHT, COMBO_END};
 
 combo_t key_combos[COMBO_COUNT] = {
   [SD_COMBO] = COMBO_ACTION(sd_combo),
   [DF_COMBO] = COMBO(df_combo, KC_TAB),
-  [FJ_COMBO] = COMBO_ACTION(fj_combo),
   [JK_COMBO] = COMBO(jk_combo, KC_ESC),
-  [KL_COMBO] = COMBO_ACTION(kl_combo),
+  [KL_COMBO] = COMBO(kl_combo, KC_QUOTE),
+  [JL_COMBO] = COMBO(jl_combo, KC_MINUS),
   [MCOMMA_COMBO] = COMBO(mco_combo, KC_WWW_BACK),
-  [COMMADOT_COMBO] = COMBO(codo_combo, KC_WWW_FORWARD),
+  [LADA_COMBO] = COMBO_ACTION(lada_combo),
+  [DARA_COMBO] = COMBO_ACTION(dara_combo),
 };
 
 void process_combo_event(uint16_t combo_index, bool pressed) {
   switch(combo_index) {
     case SD_COMBO:
       if (pressed) {
-        tap_code16(LCTL(KC_LEFT));
-      }
-      break;
-    case FJ_COMBO:
-      if (pressed) {
         tap_code16(LCTL(KC_BSPACE));
       }
       break;
-    case KL_COMBO:
+    case LADA_COMBO:
       if (pressed) {
         tap_code16(LCTL(KC_LEFT));
+      }
+      break;
+    case DARA_COMBO:
+      if (pressed) {
+        tap_code16(LCTL(KC_RIGHT));
       }
       break;
   }
@@ -70,8 +73,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_QW] = LAYOUT_eb_4x6(  // QWERTY base layer
     OSM(MOD_LGUI),  KC_Q,           KC_W,           KC_E,           KC_R,           KC_T,                           KC_Y,           KC_U,           KC_I,           KC_O,           KC_P,           OSM(MOD_LALT),
     OSM(MOD_LCTL),  KC_A,           KC_S,           KC_D,           KC_F,           KC_G,                           KC_H,           KC_J,           KC_K,           KC_L,           KC_COLN,        OSM(MOD_RCTL),
-    KC_CAPSLOCK,    KC_Z,           HYPR_T(KC_X),   KC_C,           KC_V,           KC_B,                           KC_N,           KC_M,           KC_COMMA,       KC_DOT,         KC_SLASH,       TO(_RS),
-                                    TT(_NV),        OSL(_SY),       KC_ENTER,       OSM(MOD_LSFT),                  KC_BSPACE,      KC_SPACE,       OSL(_SY),       TT(_NF)
+    KC_CAPSLOCK,    KC_Z,           HYPR_T(KC_X),   KC_C,           KC_V,           KC_B,                           KC_N,           KC_M,           KC_COMMA,       HYPR_T(KC_DOT), KC_SLASH,       TO(_RS),
+                                    TT(_NF),        OSL(_SY),       KC_ENTER,       OSM(MOD_LSFT),                  KC_BSPACE,      KC_SPACE,       OSL(_SY),       TT(_NV)
   ),
   [_RS] = LAYOUT_eb_4x6(  // RSTHD layout
     _______,        KC_J,           KC_C,           KC_Y,           KC_F,           KC_K,                           KC_Z,           KC_L,           KC_COMMA,       KC_U,           KC_Q,           _______,
@@ -80,15 +83,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                     _______,        _______,        KC_E,           _______,                        _______,        _______,        _______,        _______
   ),
   [_NF] = LAYOUT_eb_4x6(  // Numpad & Function keys
-    KC_F11,         KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                          KC_RPRN,        KC_7,           KC_8,           KC_9,           KC_COMMA,       _______,
-    _______,        KC_BSLASH,      KC_E,           KC_MINUS,       KC_PLUS,        KC_ASTR,                        KC_TAB,         KC_4,           KC_5,           KC_6,           KC_DOT,         KC_BSPACE,
-    KC_F12,         KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,                         KC_LPRN,        KC_1,           KC_2,           KC_3,           KC_ENTER,       _______,
-                                    _______,        _______,        _______,        _______,                        KC_0,           _______,        _______,        _______
+    KC_F11,         KC_F1,          KC_F2,          KC_F3,          KC_F4,          KC_F5,                          KC_LPRN,        KC_7,           KC_8,           KC_9,           KC_COMMA,       _______,
+    _______,        KC_SLASH,       KC_E,           KC_MINUS,       KC_PLUS,        KC_ASTR,                        KC_TAB,         KC_4,           KC_5,           KC_6,           KC_DOT,         KC_SPACE,
+    KC_F12,         KC_F6,          KC_F7,          KC_F8,          KC_F9,          KC_F10,                         KC_RPRN,        KC_1,           KC_2,           KC_3,           KC_ENTER,       _______,
+                                    _______,        _______,        _______,        _______,                        _______,        KC_0,           _______,        _______
   ),
   [_NV] = LAYOUT_eb_4x6(  // Navigation
-    RESET,          KC_MEDIA_PLAY_PAUSE,KC_SYSTEM_SLEEP,KC_INSERT,  KC_PSCREEN,     MAGIC_TOGGLE_NKRO,              _______,        KC_HOME,        KC_END,         KC_TAB,         KC_ESC,         _______,
-    _______,        LCTL(KC_Z),     ST_MACRO_5,     LCTL(KC_INSERT),LSFT(KC_INSERT),KC_AUDIO_MUTE,                  KC_LEFT,        KC_DOWN,        KC_UP,          KC_RIGHT,       KC_DELETE,      _______,
-    _______,        KC_MEDIA_PREV_TRACK,KC_MEDIA_NEXT_TRACK,KC_AUDIO_VOL_DOWN,KC_AUDIO_VOL_UP,_______,              _______,        KC_PGDOWN,      KC_PGUP,        ST_MACRO_0,     ST_MACRO_2,     _______,
+    _______,        KC_ESC,         KC_HOME,        KC_UP,          KC_END,         _______,                        _______,        KC_PSCREEN,     KC_INSERT,      KC_SYSTEM_SLEEP,KC_MEDIA_PLAY_PAUSE,_______,
+    _______,        KC_DELETE,      KC_LEFT,        KC_DOWN,        KC_RIGHT,       KC_TAB,                         KC_AUDIO_MUTE,  LCTL(KC_INSERT),LSFT(KC_INSERT),ST_MACRO_5,     LCTL(KC_Z),     _______,
+    RESET,          ST_MACRO_1,     ST_MACRO_0,     KC_PGDOWN,      KC_PGUP,        MAGIC_TOGGLE_NKRO,              _______,        KC_AUDIO_VOL_UP,KC_AUDIO_VOL_DOWN,KC_MEDIA_NEXT_TRACK,KC_MEDIA_PREV_TRACK,_______,
                                     _______,        _______,        _______,        _______,                        _______,        _______,        _______,        _______
   ),
   [_SY] = LAYOUT_eb_4x6(  // Symbols
@@ -153,9 +156,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 #define _BLED B5
 
 void keyboard_pre_init_user(void) {
-	setPinOutput(_RLED);
-	setPinOutput(_GLED);
-	setPinOutput(_BLED);
+  setPinOutput(_RLED);
+  setPinOutput(_GLED);
+  setPinOutput(_BLED);
 }
 
 uint32_t layer_state_set_user(uint32_t state) {
